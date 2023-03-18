@@ -1,4 +1,6 @@
-from flask import abort, redirect, render_template
+from http import HTTPStatus
+
+from flask import redirect, render_template
 
 from . import app, db
 from .forms import YaCutForm
@@ -19,13 +21,11 @@ def yacut():
         )
         db.session.add(obj)
         db.session.commit()
-        return render_template('index.html', obj=obj, form=form), 200
+        return render_template('index.html', obj=obj, form=form), HTTPStatus.OK
     return render_template('index.html', form=form)
 
 
 @app.route('/<short>')
 def source(short):
-    obj = URLMap.query.filter_by(short=short).first()
-    if not obj:
-        abort(404)
+    obj = URLMap.query.filter_by(short=short).first_or_404()
     return redirect(obj.original)
