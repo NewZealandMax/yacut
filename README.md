@@ -5,7 +5,7 @@
 
 ### Запуск проекта
 ```
-uvicorn app.main:app
+flask run
 ```
 
 ### API
