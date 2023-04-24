@@ -12,11 +12,12 @@ flask run
 ### API
 Для получения короткой ссылки отправьте POST-запрос на адрес:
 http://127.0.0.1:5000/api/id/
+
 Пример запроса:
 ```
 {
     "url": link,
-    "custom_id": string
+    "custom_id": string [Optional]
 }
 ```
 
@@ -26,7 +27,7 @@ http://127.0.0.1:5000/api/id/
 Зависимости представлены в файле `requirements.txt`
 
 ### Стек технологий
-`Flask` `Pydantic` `SQLAlchemy` `Alembic`
+`Flask` `API`
 
 ### Автор проекта
 _Max Stepanov_  
